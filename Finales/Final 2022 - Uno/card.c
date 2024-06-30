@@ -17,7 +17,7 @@ invrep(card_t c) {
     valid = c != NULL;
     valid = valid && (c->color == blue || c->color == red || c->color == yellow || c->color == green);
     valid = valid && (c->type == normal || c->type == change_color || c->type == skip);
-    valid = valid && ( 0 <= c->num <= 9);
+    valid = valid && (c->num <= 9);
     return valid;
 }
 

@@ -26,6 +26,7 @@ static node create_node(player_t player, card_t card){
     new_node->player = player;
     new_node->card = card;
     new_node->next = NULL;
+    return new_node;
 }   
 
 
@@ -35,6 +36,7 @@ uno_newgame(card_t card) {
     assert(new_game != NULL);
     new_game->size = 1;
     new_game->top = create_node(-1, card);   
+    return new_game;
 }
 
 card_t
@@ -70,7 +72,7 @@ uno_validpile(unogame_t uno) {
 
 color_t
 uno_currentcolor(unogame_t uno) {
-    return (card_get_color(uno->top));
+    return (card_get_color(uno->top->card));
 }
 
 player_t
@@ -91,9 +93,9 @@ card_t *
 uno_pile_to_array(unogame_t uno) {
     card_t *array = calloc(sizeof(card_t), uno->size);
     assert(array != NULL);
-    unsigned int length = uno->size;
+    unsigned int length = uno->size-1;
     node aux = uno->top;
-    for (unsigned int i = 0; i < length-1; i++){
+    for (unsigned int i = 0; i < uno->size; i++){
         array[length-i] = aux->card;
         aux = aux->next;
     }
@@ -105,7 +107,8 @@ uno_destroy(unogame_t uno) {
     while (uno->top != NULL){
         node aux = uno->top;
         uno->top = uno->top->next;
-        card_destroy(aux);
+        free(aux);
+        aux = NULL;
     }
     free(uno);
     uno = NULL;
