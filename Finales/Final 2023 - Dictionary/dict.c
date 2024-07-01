@@ -113,7 +113,6 @@ bool dict_exists(dict_t dict, key_t word) {
 
 
 unsigned int dict_length(dict_t dict) {
-    assert(invrep(dict));
     return (dict->size);
 }
 
