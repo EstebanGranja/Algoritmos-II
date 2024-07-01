@@ -74,8 +74,12 @@ static bool invrep(domino t)
 
 domino domino_new(int num_up, int num_down)
 {
+<<<<<<< HEAD
     domino tile = NULL;
     tile = calloc(sizeof(struct _s_domino), 1);
+=======
+    domino tile = malloc(sizeof(struct _s_domino));
+>>>>>>> 1a67bdf74f7cf15fe02dc84c4536af90c07257e7
     tile->up = num_up;
     tile->down = num_down;
     assert(invrep(tile));

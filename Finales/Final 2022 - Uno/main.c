@@ -165,7 +165,10 @@ read_pile_from_file(FILE* file, cardplay_t cards_played[], unsigned int max_read
         }
         cards_played[i].card = card_new(num, color, type);
         cards_played[i].next_player = next_player;
+<<<<<<< HEAD
         free(cards_played[i].card);
+=======
+>>>>>>> 1a67bdf74f7cf15fe02dc84c4536af90c07257e7
     }
     return length;
 }
@@ -357,4 +360,8 @@ int main(int argc, char** argv)
         color_no_color();
     }
     return EXIT_SUCCESS;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 1a67bdf74f7cf15fe02dc84c4536af90c07257e7

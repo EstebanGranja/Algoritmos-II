@@ -119,7 +119,10 @@ read_tiles_from_file(FILE* file, domino tiles[], unsigned int max_read)
             exit(EXIT_FAILURE);
         }
         tiles[i] = domino_new(num_up, num_down);
+<<<<<<< HEAD
         free(tiles[i]);
+=======
+>>>>>>> 1a67bdf74f7cf15fe02dc84c4536af90c07257e7
     }
     return length;
 }
